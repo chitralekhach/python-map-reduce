@@ -6,7 +6,7 @@ thisValue = 0.0
 
 for line in s:
   data = line.strip().split('\t')
-  paymentType, amount = data
+  paymentType, count = data
 
   if paymentType != thisKey:
     if thisKey:
@@ -18,7 +18,7 @@ for line in s:
     thisValue = 0.0
   
   # apply the aggregation function
-  thisValue += 1
+  thisValue += int(count)
 
 # output the final entry when done
 r.write(thisKey + '\t' + str(thisValue)+'\n')
